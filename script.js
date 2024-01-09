@@ -156,11 +156,105 @@ let encodedMessage = ""
     
   }
 
-  console.log(encodedMessage)
+  return encodedMessage
 }
 
-console.log(encode('hello'))
 
 function decode(string) {
-  return
+  let d = {
+    1:"a",
+    2:"e",
+    3:"i",
+    4:"o",
+    5:"u"
+  }
+  let decodedMessage = ""
+  for(let letter of string) {
+    if(d.hasOwnProperty(letter)) {
+      decodedMessage += d[letter]
+    } else {
+      decodedMessage += letter
+    }
+    
+  }
+  
+  return decodedMessage
 }
+
+// console.log(encode('hello'))
+// console.log(encode('How are you today?'))
+// console.log(decode('h2ll4'))
+
+/* ----------------------------------- ** ----------------------------------- */
+function remove (string) {  
+  return string.replace(/!+$/, '')
+}
+
+// console.log(remove("!Hi!!!"))
+// console.log(remove("!Hi"))
+
+/* ----------------------------------- ** ----------------------------------- */
+function arithmetic(a, b, operator){
+  let o = {
+    "add": "+",
+    "substract": "-",
+    "multiply": "*",
+    "divide": "/"
+  }
+
+  return eval(a + o[operator] + b)
+}
+
+// const arithmetic = (a, b, operator) => ({
+//   'add'     : a + b,
+//   'subtract': a - b,
+//   'multiply': a * b,
+//   'divide'  : a / b
+// }[operator]);
+
+// console.log(arithmetic(1, 2, "add"))
+
+/* ----------------------------------- * ----------------------------------- */
+
+function wordsToMarks(string){
+  //your code here
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  const ar = string.split('')
+  let sum = 0
+  for(let [i, letter] of ar.entries()) {
+    sum += alphabet.indexOf(letter) + 1
+  }
+  return sum
+}
+
+// const wordsToMarks = s => [...s].reduce((res, c) => res += c.charCodeAt() - 96, 0)
+
+// console.log(wordsToMarks("attitude"))
+
+/* ----------------------------------- ** ----------------------------------- */
+function multiTable(number) {
+  let table = []
+  for(let i = 1; i <= 10; i++) {
+    table.push(`${i} * ${number} = ${i*number}`)
+  }
+  return table.join('\n')
+}
+
+// console.log(multiTable(7))
+
+/* ----------------------------------- ** ----------------------------------- */
+function toCsvText(array) {
+  let final = []
+  for(let [i, csv] of array.entries()) {
+    final.push(csv.join(','))
+  }
+
+  return final.join('\n')
+}
+
+console.log(toCsvText([
+  [ 0, 1, 2, 3, 45 ],
+  [ 10,11,12,13,14 ],
+  [ 20,21,22,23,24 ],
+  [ 30,31,32,33,34 ]
+ ]))

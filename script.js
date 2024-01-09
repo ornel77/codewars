@@ -102,20 +102,22 @@ function validatePIN(pin) {
 function longestConsec(strarr, k) {
   const ar = [];
   let i = 0;
-  let word = ""
-//   for (let j = 0; j <= k; j++) {
-//     // ar.push((word += strarr[i]));
-//     // i++;
+  let word = "";
+  //   for (let j = 0; j <= k; j++) {
+  //     // ar.push((word += strarr[i]));
+  //     // i++;
 
-//     console.log(j)
-//   }
-while(k !== strarr.length + 1) {
-    ar.push(strarr.slice(i, k).join(''))
-    i++
-    k++
-}
-let lengths = ar.map(a => {a: a.length})
-return lengths
+  //     console.log(j)
+  //   }
+  while (k !== strarr.length + 1) {
+    ar.push(strarr.slice(i, k).join(""));
+    i++;
+    k++;
+  }
+  let lengths = ar.map((a) => {
+    a: a.length;
+  });
+  return lengths;
 }
 // console.log(
 //   longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)
@@ -136,49 +138,45 @@ return lengths
 // console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3))
 // console.log(longestConsec(["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"], 2))
 
-
 /* ----------------------------------- ** ----------------------------------- */
 function encode(string) {
   let e = {
-    "a": 1,
-    "e": 2,
-    "i": 3,
-    "o": 4,
-    "u": 5
-  }
-let encodedMessage = ""
-  for(let letter of string) {
-    if(e.hasOwnProperty(letter)) {
-      encodedMessage += e[letter]
+    a: 1,
+    e: 2,
+    i: 3,
+    o: 4,
+    u: 5,
+  };
+  let encodedMessage = "";
+  for (let letter of string) {
+    if (e.hasOwnProperty(letter)) {
+      encodedMessage += e[letter];
     } else {
-      encodedMessage += letter
+      encodedMessage += letter;
     }
-    
   }
 
-  return encodedMessage
+  return encodedMessage;
 }
-
 
 function decode(string) {
   let d = {
-    1:"a",
-    2:"e",
-    3:"i",
-    4:"o",
-    5:"u"
-  }
-  let decodedMessage = ""
-  for(let letter of string) {
-    if(d.hasOwnProperty(letter)) {
-      decodedMessage += d[letter]
+    1: "a",
+    2: "e",
+    3: "i",
+    4: "o",
+    5: "u",
+  };
+  let decodedMessage = "";
+  for (let letter of string) {
+    if (d.hasOwnProperty(letter)) {
+      decodedMessage += d[letter];
     } else {
-      decodedMessage += letter
+      decodedMessage += letter;
     }
-    
   }
-  
-  return decodedMessage
+
+  return decodedMessage;
 }
 
 // console.log(encode('hello'))
@@ -186,23 +184,23 @@ function decode(string) {
 // console.log(decode('h2ll4'))
 
 /* ----------------------------------- ** ----------------------------------- */
-function remove (string) {  
-  return string.replace(/!+$/, '')
+function remove(string) {
+  return string.replace(/!+$/, "");
 }
 
 // console.log(remove("!Hi!!!"))
 // console.log(remove("!Hi"))
 
 /* ----------------------------------- ** ----------------------------------- */
-function arithmetic(a, b, operator){
+function arithmetic(a, b, operator) {
   let o = {
-    "add": "+",
-    "substract": "-",
-    "multiply": "*",
-    "divide": "/"
-  }
+    add: "+",
+    substract: "-",
+    multiply: "*",
+    divide: "/",
+  };
 
-  return eval(a + o[operator] + b)
+  return eval(a + o[operator] + b);
 }
 
 // const arithmetic = (a, b, operator) => ({
@@ -216,15 +214,15 @@ function arithmetic(a, b, operator){
 
 /* ----------------------------------- * ----------------------------------- */
 
-function wordsToMarks(string){
+function wordsToMarks(string) {
   //your code here
-  const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-  const ar = string.split('')
-  let sum = 0
-  for(let [i, letter] of ar.entries()) {
-    sum += alphabet.indexOf(letter) + 1
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  const ar = string.split("");
+  let sum = 0;
+  for (let [i, letter] of ar.entries()) {
+    sum += alphabet.indexOf(letter) + 1;
   }
-  return sum
+  return sum;
 }
 
 // const wordsToMarks = s => [...s].reduce((res, c) => res += c.charCodeAt() - 96, 0)
@@ -233,28 +231,113 @@ function wordsToMarks(string){
 
 /* ----------------------------------- ** ----------------------------------- */
 function multiTable(number) {
-  let table = []
-  for(let i = 1; i <= 10; i++) {
-    table.push(`${i} * ${number} = ${i*number}`)
+  let table = [];
+  for (let i = 1; i <= 10; i++) {
+    table.push(`${i} * ${number} = ${i * number}`);
   }
-  return table.join('\n')
+  return table.join("\n");
 }
 
 // console.log(multiTable(7))
 
 /* ----------------------------------- ** ----------------------------------- */
 function toCsvText(array) {
-  let final = []
-  for(let [i, csv] of array.entries()) {
-    final.push(csv.join(','))
+  let final = [];
+  for (let [i, csv] of array.entries()) {
+    final.push(csv.join(","));
   }
 
-  return final.join('\n')
+  return final.join("\n");
 }
 
-console.log(toCsvText([
-  [ 0, 1, 2, 3, 45 ],
-  [ 10,11,12,13,14 ],
-  [ 20,21,22,23,24 ],
-  [ 30,31,32,33,34 ]
- ]))
+// console.log(toCsvText([
+//   [ 0, 1, 2, 3, 45 ],
+//   [ 10,11,12,13,14 ],
+//   [ 20,21,22,23,24 ],
+//   [ 30,31,32,33,34 ]
+//  ]))
+
+/* ----------------------------------- ** ----------------------------------- */
+function findLongest(array) {
+  let stringArr = array.map((num) => num.toString().length);
+  let index = stringArr.indexOf(Math.max(...stringArr));
+  return array[index];
+}
+
+// function findLongest(array){
+//   return array.reduce((res, curr) => (String(res).length < String(curr).length) ? curr : res);
+// }
+
+// console.log(findLongest([1, 10, 100]))
+// console.log(findLongest([8, 900, 500]))
+
+/* ----------------------------------- ** ----------------------------------- */
+function wave(str) {
+  let ar = [];
+  for (let i = 0; i < str.length; i++) {
+    let letters = str.split("");
+    if (letters[i] !== " ") {
+      letters[i] = letters[i].toUpperCase();
+      ar.push(letters.join(""));
+    }
+  }
+
+  return ar;
+}
+
+// console.log(wave("codewars"));
+// console.log(wave("two words"));
+// console.log(wave(" gap "));
+// console.log(wave("hello"));
+
+/* ----------------------------------- ** ----------------------------------- */
+function sumCubes(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += Math.pow(i, 3);
+  }
+  return sum;
+}
+
+// console.log(sumCubes(2))
+/* ----------------------------------- ** ----------------------------------- */
+function solution(str) {
+  let a = [];
+  if (str === "") {
+    return [];
+  }
+  for (let i = 0; i <= str.length; i += 2) {
+    if (i === str.length - 1) {
+      a.push(str[i] + "_");
+    } else {
+      a.push(str[i] + str[i + 1]);
+    }
+  }
+  
+  return a.filter(l => typeof l == 'string')
+}
+
+// function solution(str){
+//   arr = [];
+//   for(var i = 0; i < str.length; i += 2){
+//     second = str[i+1] || '_';
+//     arr.push(str[i] + second);
+//   }
+//   return arr;
+// }
+// console.log(solution("abcdef"));
+// console.log(solution("abcdefg"));
+// console.log(solution(""));
+
+/* ----------------------------------- ** ----------------------------------- */
+
+function moveZeros(arr) {
+  let zeros = arr.filter(elmt => elmt === 0)
+  let final = arr.filter(elmt => elmt !== 0)
+  final.push(zeros)
+  return final.flat()
+}
+
+// console.log(moveZeros([1,2,0,1,0,1,0,3,0,1]))
+// console.log(moveZeros([false,1,0,1,2,0,1,3,"a"]))
+console.log(moveZeros(['4', 7, null, false, 9, '9', 9, '7', '6', 9, 3, 4, '6', 9, '8', 7, '1', true, '1', null ]))

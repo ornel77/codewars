@@ -313,8 +313,8 @@ function solution(str) {
       a.push(str[i] + str[i + 1]);
     }
   }
-  
-  return a.filter(l => typeof l == 'string')
+
+  return a.filter((l) => typeof l == "string");
 }
 
 // function solution(str){
@@ -332,12 +332,69 @@ function solution(str) {
 /* ----------------------------------- ** ----------------------------------- */
 
 function moveZeros(arr) {
-  let zeros = arr.filter(elmt => elmt === 0)
-  let final = arr.filter(elmt => elmt !== 0)
-  final.push(zeros)
-  return final.flat()
+  let zeros = arr.filter((elmt) => elmt === 0);
+  let final = arr.filter((elmt) => elmt !== 0);
+  final.push(zeros);
+  return final.flat();
 }
 
 // console.log(moveZeros([1,2,0,1,0,1,0,3,0,1]))
 // console.log(moveZeros([false,1,0,1,2,0,1,3,"a"]))
-console.log(moveZeros(['4', 7, null, false, 9, '9', 9, '7', '6', 9, 3, 4, '6', 9, '8', 7, '1', true, '1', null ]))
+
+/* ----------------------------------- ** ----------------------------------- */
+function zero() {
+  return 0;
+}
+function one() {
+  return 1;
+}
+function two() {
+  return 2;
+}
+function three() {
+  return 3;
+}
+function four() {
+  return 4;
+}
+function five() {
+  return 5;
+}
+function six() {
+  return 6;
+}
+function seven() {
+  return 7;
+}
+function eight() {
+  return 8;
+}
+function nine() {
+  return 9;
+}
+
+function plus() {
+  return "+";
+}
+function minus() {
+  return "-";
+}
+function times() {
+  return "*";
+}
+function dividedBy() {
+  return "/";
+}
+
+// console.log(eval(seven(times(five()))));
+
+/* ----------------------------------- ** ----------------------------------- */
+function monkeyCount(n) {
+  // your code here
+    // return [...Array(n).keys()]
+    // return Array.from({length: n}, (_, i) => i + 1)
+    // return [...Array(26).keys()].map(i => String.fromCharCode(i + 97))
+    return [...Array(26)].map((_,i) => (i+10).toString(16))
+
+  }
+  console.log(monkeyCount(1))

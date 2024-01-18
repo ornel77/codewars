@@ -1,19 +1,19 @@
-// function scramble(str1, str2) {
-//   let goodLetter = "";
-//   let ar1 = str1.split("");
-//   let ar2 = str2.split("");
+function scramble(str1, str2) {
+  let goodLetter = "";
+  let ar1 = str1.split("");
+  let ar2 = str2.split("");
 
-//   for (let i = 0; i < ar1.length; i++) {
-//     for (let j = 0; j < ar2.length; j++) {
-//       if (ar1[i] === ar2[j]) {
-//         goodLetter += ar1[i];
-//         ar2.splice(j, 1);
-//         break;
-//       }
-//     }
-//   }
-//   return goodLetter.length === str2.length;
-// }
+  for (let i = 0; i < ar1.length; i++) {
+    for (let j = 0; j < ar2.length; j++) {
+      if (ar1[i] === ar2[j]) {
+        goodLetter += ar1[i];
+        ar2.splice(j, 1);
+        break;
+      }
+    }
+  }
+  return goodLetter.length === str2.length;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                             OPTIMIZED SOLUTIONS                            */

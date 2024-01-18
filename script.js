@@ -96,29 +96,38 @@ function snail(ar) {
   return final;
 }
 
-console.log(
-  snail([
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-  ])
-);
-console.log(snail([1]));
-console.log(
-  snail([
-    [1, 2],
-    [3, 4],
-  ])
-);
-console.log(
-  snail([[]])
-);
+// console.log(
+//   snail([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+//   ])
+// );
+// console.log(snail([1]));
+// console.log(
+//   snail([
+//     [1, 2],
+//     [3, 4],
+//   ])
+// );
+// console.log(
+//   snail([[]])
+// );
 
-console.log(
-  snail([
-    [1, 2, 3, 4],
-    [5, 6, 7,8],
-    [9, 10,11,12],
-    [13,14,15,16],
-  ])
-);
+// console.log(
+//   snail([
+//     [1, 2, 3, 4],
+//     [5, 6, 7,8],
+//     [9, 10,11,12],
+//     [13,14,15,16],
+//   ])
+// );
+
+/* ----------------------------------- ** ----------------------------------- */
+function maskify(cc) {
+  let last4num = cc.slice(-4)
+  let maskedCode = last4num.padStart(cc.length, "#")
+  return maskedCode
+}
+
+console.log(maskify('4556364607935616'));

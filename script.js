@@ -344,10 +344,10 @@ function moveZeros(arr) {
 /* ----------------------------------- ** ----------------------------------- */
 function monkeyCount(n) {
   // your code here
-    // return [...Array(n).keys()]
+    return [...Array(n).keys()]
     // return Array.from({length: n}, (_, i) => i + 1)
     // return [...Array(26).keys()].map(i => String.fromCharCode(i + 97))
-    return [...Array(26)].map((_,i) => (i+10).toString(16))
+    // return [...Array(26)].map((_,i) => (i+10).toString(16))
 
   }
-  // console.log(monkeyCount(1))
+  console.log(monkeyCount(10))

@@ -15,7 +15,9 @@
 //   return goodLetter.length === str2.length;
 // }
 
-
+/* -------------------------------------------------------------------------- */
+/*                             OPTIMIZED SOLUTIONS                            */
+/* -------------------------------------------------------------------------- */
 function scramble(str1, str2) {
   let occcurences = {}
 
@@ -28,6 +30,16 @@ function scramble(str1, str2) {
   })
   return Object.keys(occcurences).every(key => occcurences[key] === 0)
 
+}
+
+function scramble(str1, str2) {
+  const count = {}
+  str1.split('').forEach((c) => {
+    count[c] = count[c] ? (count[c] += 1) : 1
+  })
+  return str2.split('').every((c) => {
+    return count[c]--
+  })
 }
 console.log(scramble("rkqodlw", "world")); //true
 console.log(scramble("jscripts", "javascript")); //false

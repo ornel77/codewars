@@ -111,3 +111,82 @@ function divisors(integer) {
 // console.log(divisors(13));
 // console.log(divisors(23));
 
+/* ----------------------------------- ** ----------------------------------- */
+function isDivisible(n, x, y) {
+  return n % x == 0 && n % y == 0
+}
+
+// console.log(isDivisible(3,3,4))
+// console.log(isDivisible(12,3,4))
+
+/* ----------------------------------- ** ----------------------------------- */
+function doMath(string) {
+  let ar = string.split(' ')
+  let numbers =[]
+  let letters = []
+  let indexLetter = {}
+  ar.forEach(word => {
+    letters.push(...word.match(/[a-z]/g))
+    numbers.push(word.replace(/[a-z]/, ''))
+  })
+  for(let i=0; i <letters.length; i++) {
+    indexLetter[i] = letters[i]
+  }
+  let sortedLetters = [...letters]
+  sortedLetters.sort()
+  let sortedNumbers = []
+  
+  for(let [i,letter] of sortedLetters.entries()) {
+    sortedNumbers.push(numbers[letters.indexOf(letter)])
+    // numbers.splice(i, 1)
+  }
+  return sortedNumbers
+
+  
+}
+// console.log(doMath("24z6 1z23 y369 89z 900b"))
+// console.log(doMath("24z6 1x23 y369 89a 900b"))
+
+/* ----------------------------------- ** ----------------------------------- */
+const sequenceSum = (begin, end, step) => {
+  let count = 0
+  for(let i = begin; i <= end; i+=step) {
+    console.log(i, count)
+    count += i
+  }
+  return count
+};
+
+// console.log(sequenceSum(2,6,2))
+// console.log(sequenceSum(1,5,1))
+
+
+/* -------------------------- Parse HTML/CSS Colors ------------------------- */
+function parseHTMLColor(color) {
+  let hexaValue
+  let couple = []
+  if(color.length === 7) {
+    hexaValue = color.split('')
+    hexaValue.shift()
+    for (let i = 0; i < hexaValue.length; i+=2) {
+      couple.push(hexaValue[i] + hexaValue[i+1])
+    }
+
+  } else if(color.length === 4) {
+    hexaValue = color.split('')
+    hexaValue.shift()
+    for (let i = 0; i < hexaValue.length; i++) {
+      couple.push(hexaValue[i] + hexaValue[i])
+    }
+  } else {
+    // PRESET_COLORS
+  }
+
+  //convertion hexa
+  console.log(parseInt(couple[1],16))
+  return couple
+}
+
+console.log(parseHTMLColor('#80FFA0'))
+console.log(parseHTMLColor('#3B7'))
+console.log(parseHTMLColor('LimeGreen'))

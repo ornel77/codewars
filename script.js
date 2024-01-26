@@ -512,7 +512,7 @@ function parseHTMLColor(color) {
   }
 }
 
-console.log(parseHTMLColor('#80FFA0'));
-console.log(parseHTMLColor('#3B7'));
-console.log(parseHTMLColor('cyan'));
-console.log(parseHTMLColor('blue'));
+// console.log(parseHTMLColor('#80FFA0'));
+// console.log(parseHTMLColor('#3B7'));
+// console.log(parseHTMLColor('cyan'));
+// console.log(parseHTMLColor('blue'));

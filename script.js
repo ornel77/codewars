@@ -27,31 +27,31 @@ function moveZeros(arr) {
 
 /* ------------------------- Stop gninnipS My sdroW! ------------------------ */
 function spinWords(string) {
-  let ar = string.split(" ");
+  let ar = string.split(' ');
   let final = [];
   ar.forEach((word) => {
     if (word.length >= 5) {
-      final.push(word.split("").reverse().join(""));
+      final.push(word.split('').reverse().join(''));
     } else {
       final.push(word);
     }
   });
 
-  return final.join(" ");
+  return final.join(' ');
 }
 
 /* --------------------------- others solutions --------------------------- */
 function spinWords(words) {
   return words
-    .split(" ")
+    .split(' ')
     .map(function (word) {
-      return word.length > 4 ? word.split("").reverse().join("") : word;
+      return word.length > 4 ? word.split('').reverse().join('') : word;
     })
-    .join(" ");
+    .join(' ');
 }
 function spinWords(string) {
   return string.replace(/\w{5,}/g, function (w) {
-    return w.split("").reverse().join("");
+    return w.split('').reverse().join('');
   });
 }
 // console.log(spinWords("Hey fellow warriors"))
@@ -75,7 +75,7 @@ function gimme(triplet) {
 /* -------------------------------------------------------------------------- */
 function factorial(n) {
   if (n < 0 || n > 12) {
-    throw new RangeError("error");
+    throw new RangeError('error');
   }
   let count = 1;
   for (let i = 1; i <= n; i++) {
@@ -154,15 +154,15 @@ function findNextSquare(sq) {
 /* -------------------------------------------------------------------------- */
 
 function decipherThis(str) {
-  let ar = str.split(" ");
+  let ar = str.split(' ');
 
   return ar
     .map((word) => {
-      let code = word.match(/\d+/).join("");
-      let letters = word.replace(/\d/g, "");
-      let reverseString = "";
+      let code = word.match(/\d+/).join('');
+      let letters = word.replace(/\d/g, '');
+      let reverseString = '';
       if (letters.length === 0) {
-        reverseString = "";
+        reverseString = '';
       } else if (letters.length === 1) {
         reverseString = letters;
       } else {
@@ -172,19 +172,19 @@ function decipherThis(str) {
       let character = String.fromCharCode(+code);
       return character + reverseString;
     })
-    .join(" ");
+    .join(' ');
 }
 
 /* ----------------------------- other solution ----------------------------- */
 function decipherThis(str) {
   return str
-    .split(" ")
+    .split(' ')
     .map((w) =>
       w
         .replace(/^\d+/, (c) => String.fromCharCode(c))
-        .replace(/^(.)(.)(.*)(.)$/, "$1$4$3$2")
+        .replace(/^(.)(.)(.*)(.)$/, '$1$4$3$2')
     )
-    .join(" ");
+    .join(' ');
 }
 
 function decipherThis(str) {
@@ -219,13 +219,13 @@ function sumStrings(a, b) {
 
 String.prototype.camelCase = function () {
   if (this.length === 0) {
-    return "";
+    return '';
   } else {
-    return this.split(" ")
+    return this.split(' ')
       .map((word) => {
         return word[0].toUpperCase() + word.slice(1).toLowerCase();
       })
-      .join("");
+      .join('');
   }
 };
 
@@ -235,16 +235,58 @@ String.prototype.camelCase = function () {
 /*                              Compare Versions                              */
 /* -------------------------------------------------------------------------- */
 
-function compareVersions (version1, version2) {
+function compareVersions(version1, version2) {
   // return parseFloat(version1) >= parseFloat(version2);
-  if(!version1.includes(".") && !version2.includes('.')) {
-    return +version1 >= +version2
+  if (!version1.includes('.') && !version2.includes('.')) {
+    return +version1 >= +version2;
   }
 
-  
-  
+  let ar1 = version1.split('.');
+  let ar2 = version2.split('.');
+  if (ar1.length > ar2.length) {
+    ar2.push(0);
+  } else {
+    ar1.push(0);
+  }
+
+  for (let i = 0; i < ar1.length; i++) {
+    if (+ar1[i] > +ar2[i]) {
+      return true;
+    } else if (+ar1[i] < +ar2[i]) {
+      return false;
+    } else {
+      continue;
+    }
+  }
 }
 
-console.log(compareVersions("11", "11"))  //true
-console.log(compareVersions("10.4.6", "10.4")) //true
-console.log(compareVersions("10.4.9", "10.5")) //true
+function compareVersions (version1, version2) {
+  let arr1 = version1.split('.');
+  let arr2 = version2.split('.');
+
+  let maxLength = Math.max(arr1.length, arr2.length);
+
+  for (let i = 0; i < maxLength; i++) {
+      if (Number(arr1[i] || 0) < Number(arr2[i] || 0)) {
+          return false;
+      }
+  } return true;
+}
+
+function compareVersions(v1, v2)  {
+  const a1 = v1.split('.').map(Number);
+  const a2 = v2.split('.').map(Number);
+  for (let i = 0; i < Math.max(a1.length, a2.length); i++) {
+    let n1 = a1[i] || 0, n2 = a2[i] || 0;
+    if (n1 === n2) continue;
+    return (n1 > n2) ? true : false;
+  }
+  return true;
+};
+
+console.log(compareVersions('11', '11')); //true
+console.log(compareVersions('10.4.6', '10.4')); //true
+console.log(compareVersions('10.4.9', '10.5')); //false
+console.log(compareVersions('10.4', '11')); //false
+console.log(compareVersions('10.4', '10.10')); //false
+console.log(compareVersions("11", "10")); //true
